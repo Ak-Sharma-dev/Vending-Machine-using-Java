@@ -6,6 +6,7 @@ public class Main {
 	// write your code here
        Scanner sc = new Scanner(System.in);
        int x=1;
+       int current_balance=10000;
        int candies = 200, chips = 50, gums = 150, cookies = 80;
        int candies_p = 2, chips_p = 10, gums_p = 3, cookies_p = 5;
        while(x!=0) {
@@ -18,8 +19,15 @@ public class Main {
                    "9 to exit");
            int s_item = sc.nextInt();
            int total_price=0;
-           if(s_item==9)
+           if(s_item==9) {
+               System.out.println("Items Inventory :\n" +
+                       "Candy :"+candies+"\n" +
+                       "Chips :"+chips+"\n" +
+                       "Gum :"+gums+"\n" +
+                       "Cookies :"+cookies+"\n" +
+                       "Current Balance :"+current_balance);
                break;
+           }
            System.out.print("Enter the Quantity: ");
            int quantity = sc.nextInt();
            if(s_item==1 && quantity>candies ||s_item==2 && quantity>chips ||s_item==3 && quantity>gums ||
@@ -37,6 +45,7 @@ public class Main {
                else if(s_item==4)
                total_price = quantity*cookies_p;
                System.out.println("Pay the amount of : "+total_price);
+               current_balance-=total_price;
                int price;
                while(total_price!=0){
                    price = sc.nextInt();
@@ -45,14 +54,15 @@ public class Main {
                    System.out.println("Pay the remaining amount of : "+total_price);
                }
            }
+
            if(s_item==1)
                candies-=quantity;
            else if(s_item==2)
-               chips-=quantity;
+               candies-=quantity;
            else if(s_item==3)
-               gums-=quantity;
+               candies-=quantity;
            else if(s_item==4)
-               cookies-=quantity;
+               candies-=quantity;
            System.out.println("Collect your item at the bottom and enjoy.");
        }
     }
