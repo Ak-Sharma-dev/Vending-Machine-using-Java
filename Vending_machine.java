@@ -58,11 +58,11 @@ public class Main {
            if(s_item==1)
                candies-=quantity;
            else if(s_item==2)
-               candies-=quantity;
+               chips-=quantity;
            else if(s_item==3)
-               candies-=quantity;
+               gums-=quantity;
            else if(s_item==4)
-               candies-=quantity;
+               cookies-=quantity;
            System.out.println("Collect your item at the bottom and enjoy.");
        }
     }
